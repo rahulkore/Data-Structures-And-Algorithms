@@ -3,7 +3,7 @@ package DataStructures;
 class Stack {
 	static final int MAX = 1000;
 	int top;
-	int a[] = new int[MAX]; // Maximum size of Stack
+	char a[] = new char[MAX]; // Maximum size of Stack
 
 	boolean isEmpty()
 	{
@@ -14,48 +14,42 @@ class Stack {
 		top = -1;
 	}
 
-	boolean push(int x)
+	void push(char x)
 	{
 		if (top >= (MAX - 1)) {
 			System.out.println("Stack Overflow");
-			return false;
 		}
 		else {
 			a[++top] = x;
 			System.out.println(x + " pushed into stack");
-			return true;
 		}
 	}
 
-	int pop()
+	char pop()
 	{
 		if (top < 0) {
 			System.out.println("Stack Underflow");
 			return 0;
 		}
 		else {
-			int x = a[top--];
+			char x = a[top--];
 			return x;
 		}
 	}
 
-	int peek()
+	char peek()
 	{
 		if (top < 0) {
 			System.out.println("Stack Underflow");
 			return 0;
 		}
 		else {
-			int x = a[top];
+			char x = a[top];
 			return x;
 		}
 	}
 
-    boolean isOperand(char ch){
-        if((ch>='a' && ch<='z') || (ch<='A' && ch>='Z'))
-            return true;
-        else return false;
-    }
+   
 	
     int ipr(char ch){
         switch(ch){
@@ -81,17 +75,61 @@ class Stack {
         return -1;
     }
 
-    void convert(String infix) {
-        Stack s = new Stack();
-        int l = infix.length();
-
+	boolean isOperand(char ch){
+        if((ch>='a' && ch<='z') || (ch<='A' && ch>='Z'))
+            return true;
+        else return false;
     }
 
+	static String convert(String infix) {
+        Stack s = new Stack();
+		char in[] = infix.toCharArray();
+		String postFix = "";
+		for(char ele : in){
+			if(ele == '('){
+				s.push(ele);
+			}
+			else if(ele == ')'){
+				while(true){
+					char x = s.pop();
+					if(x == '(')
+						break;
+					postFix += x;
+				}
+			}
+			else if(s.isOperand(ele)){
+				postFix += ele;
+			}
+			else if(s.isEmpty()){
+				s.push(ele);
+			}
+			else if(s.ipr(ele) > s.rpr(s.peek())){
+				s.push(ele);
+			}
+			else{
+				while(!s.isEmpty() && (s.ipr(ele) <= s.rpr(s.peek()))){
+					char x = s.pop();
+					postFix += x;
+				}
+				s.push(ele);
+			}
+		}
+
+		while(!s.isEmpty()){
+			postFix += s.pop();
+		}
+
+		return postFix;
+    }
+   
 }
 
 public class InfixToPostFix {
-    
-    public static void main(String[] args) {
 
+	public static void main(String[] args) {
+		//String infix = "a+b*c";
+		String infix = "m*j-(n+d)/f*w+z";
+		System.out.print(Stack.convert(infix));
     }
+
 }
