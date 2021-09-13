@@ -1,5 +1,7 @@
 /* Java program to implement basic stack
 operations */
+
+//
 class Stack {
 	static final int MAX = 1000;
 	int top;
