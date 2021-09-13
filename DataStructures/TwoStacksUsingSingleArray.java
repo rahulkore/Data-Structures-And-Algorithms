@@ -1,3 +1,4 @@
+package DataStructures;
 class Stack {
     static final int MAX = 1000;
 	int top1,top2;

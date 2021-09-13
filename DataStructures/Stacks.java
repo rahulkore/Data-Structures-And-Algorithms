@@ -2,6 +2,7 @@
 operations */
 
 //
+package DataStructures;
 class Stack {
 	static final int MAX = 1000;
 	int top;
