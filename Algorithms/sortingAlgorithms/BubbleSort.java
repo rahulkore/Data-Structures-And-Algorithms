@@ -2,7 +2,7 @@ package Algorithms.sortingAlgorithms;
 
 public class BubbleSort {
 
-    static void BubbleSort(int a[]){
+    static void bubbleSort(int a[]){
         int i,j,temp;
         int exchange = 1;
         for(i=0;i<a.length-1 && exchange ==1 ;i++){
@@ -20,7 +20,7 @@ public class BubbleSort {
     
     public static void main(String[] args) {
         int elements[]= {59,23,65,12,38,80,30,45,35};
-        BubbleSort(elements);
+        bubbleSort(elements);
         for (int i : elements) {
             System.out.println(i);   
         }
