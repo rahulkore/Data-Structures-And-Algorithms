@@ -1,5 +1,12 @@
 package Algorithms.sortingAlgorithms;
 
+/**
+Time complexity analysis 
+Best Case => n^2
+
+worst Case => n^2
+ */
+
 public class SelectionSort {
 
     static void selectionSort(int a[]){

@@ -1,5 +1,12 @@
 package Algorithms.sortingAlgorithms;
 
+/**
+Time complexity analysis 
+Best Case => n * log(n)
+
+worst Case => n^2
+ */
+
 public class QuickSort {
 
     static int partition(int x[], int lb, int ub){

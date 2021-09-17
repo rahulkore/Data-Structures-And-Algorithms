@@ -1,5 +1,12 @@
 package Algorithms.sortingAlgorithms;
 
+/**
+Time complexity analysis 
+Best Case => n * log(n)
+
+worst Case => n * log(n)
+ */
+
 public class MergeSort {
 
     static void merge(int x[], int lb, int m, int ub){

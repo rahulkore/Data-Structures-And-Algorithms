@@ -1,5 +1,13 @@
 package Algorithms.sortingAlgorithms;
 
+
+/**
+Time complexity analysis 
+Best Case => n (when all the elements are sorted)
+
+worst Case => n^2
+ */
+
 public class BubbleSort {
 
     static void bubbleSort(int a[]){

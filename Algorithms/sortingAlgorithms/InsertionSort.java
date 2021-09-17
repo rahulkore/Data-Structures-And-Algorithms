@@ -1,5 +1,12 @@
 package Algorithms.sortingAlgorithms;
 
+
+/**
+Time complexity analysis 
+Best Case => n (when all the elements are sorted)
+
+worst Case => n^2
+ */
 public class InsertionSort {
 
     static void insertionSort(int a[]){
