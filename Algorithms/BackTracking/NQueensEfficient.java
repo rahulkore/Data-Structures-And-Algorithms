@@ -11,6 +11,7 @@ class NQueensEfficient {
      * 
      * These three conditions need to be strictly satisfied
      * 
+     * NQueens has a time complexity of O(n!)
      */
 
     
