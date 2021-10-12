@@ -1,5 +1,9 @@
 package Algorithms.Graphs;
-
+/**
+ * below implementation is using kahns algorithm/bfs using indegree , we can also do toposort using dfs and stack  
+ * basically run the dfs for all the nodes and keep on storing the node inside of a stack then empty the stack and 
+ * you will get the toposort 
+ */
 public class TopologicalSorting {
 
     public static  int adj[][];
