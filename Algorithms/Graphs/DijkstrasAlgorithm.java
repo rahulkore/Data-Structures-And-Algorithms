@@ -1,12 +1,19 @@
 package Algorithms.Graphs;
 import java.util.*;
+class CustomIntegerComparator implements Comparator<int[]> {
+
+    @Override
+    public int compare(int[] o1, int[] o2) {
+        return o1[1] < o2[1] ? 1 : -1;
+    }
+}
 /**
  * Dijkstras algorithm for shortest path
  */
 public class DijkstrasAlgorithm {
 
-    private static void zeroOneBfs(int source,ArrayList<ArrayList<int[]>> adj, int[] dist,int[] parent ){
-        PriorityQueue<int[]> dq = new PriorityQueue<>();
+    private static void dijkstras(int source,ArrayList<ArrayList<int[]>> adj, int[] dist,int[] parent ){
+        PriorityQueue<int[]> dq = new PriorityQueue<>(new CustomIntegerComparator());
         dq.add(new int[]{source,0});
         dist[source] = 0;
         while(!dq.isEmpty()){
@@ -44,7 +51,7 @@ public class DijkstrasAlgorithm {
         int[] dist = new int[V];
         int[] parent= new int[V];
         Arrays.fill(dist, Integer.MAX_VALUE);
-        zeroOneBfs(0, list, dist,parent);
+        dijkstras(0, list, dist,parent);
         sc.close();
     }
 }
