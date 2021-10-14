@@ -1,10 +1,13 @@
 package Algorithms.Graphs;
+
+import java.util.*;
+
 /**
  * below implementation is using kahns algorithm/bfs using indegree , we can also do toposort using dfs and stack  
  * basically run the dfs for all the nodes and keep on storing the node inside of a stack then empty the stack and 
  * you will get the toposort 
  */
-public class TopologicalSorting {
+public class TopologicalSortingUsingBfs {
 
     public static  int adj[][];
     public static  int visited[];
@@ -12,10 +15,7 @@ public class TopologicalSorting {
     public static  int indegree[];
 
     static void topoSort(){
-
-        int q[] = new int[n];
-        int f=-1,r=-1;
-
+        Queue<Integer> q = new LinkedList<>();
         for(int i=0;i<n;i++){
             for(int j=0;j<n;j++){
                 if(adj[j][i] == 1){
@@ -24,23 +24,25 @@ public class TopologicalSorting {
             }
         }
 
-        while(true)
+        for(int i=0;i<n;i++){
+            if(indegree[i] == 0 && visited[i]==0){
+                q.offer(i);
+                visited[i] = 1;
+            }
+        }
+
+        while(!q.isEmpty())
         {
 
-            for(int i=0;i<n;i++){
-                if(indegree[i] == 0 && visited[i]==0){
-                    q[++r] = i;
-                    visited[i] = 1;
-                }
-            }
-            if(f==r){
-                break;
-            }
-            int node = q[++f];
+            int node = q.poll();
             System.out.println(node+1);
             for(int i=0;i<n;i++){
                 if(adj[node][i] == 1){
                     indegree[i]--;
+                }
+                if(indegree[i] == 0 ){
+                    visited[i] = 1;
+                    q.offer(i);
                 }
             }
 
