@@ -5,7 +5,7 @@ import java.util.*;
  */
 public class DijkstrasAlgorithm {
 
-    private static void zeroOneBfs(int source,ArrayList<ArrayList<int[]>> adj, int[] dist ){
+    private static void zeroOneBfs(int source,ArrayList<ArrayList<int[]>> adj, int[] dist,int[] parent ){
         PriorityQueue<int[]> dq = new PriorityQueue<>();
         dq.add(new int[]{source,0});
         dist[source] = 0;
@@ -18,6 +18,7 @@ public class DijkstrasAlgorithm {
                 int wt = it[1];
                 if(du + wt < dist[v]){
                     dist[v] = du + wt;
+                    parent[v] = u;
                     dq.add(new int[]{v,du+wt});
                 }
             }
@@ -41,8 +42,9 @@ public class DijkstrasAlgorithm {
             list.get(u).add(new int[]{v,w});
         }
         int[] dist = new int[V];
+        int[] parent= new int[V];
         Arrays.fill(dist, Integer.MAX_VALUE);
-        zeroOneBfs(0, list, dist);
+        zeroOneBfs(0, list, dist,parent);
         sc.close();
     }
 }
