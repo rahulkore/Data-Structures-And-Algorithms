@@ -2,10 +2,15 @@ package Algorithms.Graphs;
 import java.util.*;
 /**
  * Bridges In Graph => A bridge in a graph is an edge which on removal disconnects the graph.
+ * 
+ * timeinsertion is the time when we first visit the node.
+ * lowtime of a node is the lowest time of its adjacent nodes .
  */
 public class BridgesInGraph {
 
+    private static int timer = 0;
     private static void dfs(int node, int parent, List<List<Integer>> adj,int[] visited,int[] tin,int[] lowtime){
+        tin[node] = lowtime[node] = timer++;
         visited[node] = 1;
         for(int adjnode : adj.get(node)){
             if(adjnode == parent) continue;
@@ -33,8 +38,7 @@ public class BridgesInGraph {
         int[] visited = new int[V];
         int[] tin = new int[V];
         int lowtime[] = new int[V];
-        int timer = 0;
-        tin[0] = lowtime[0] = timer++;
+        
         t.close();
         dfs(0,-1,adj,visited,tin,lowtime);
     }
