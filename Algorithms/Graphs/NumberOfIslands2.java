@@ -39,12 +39,15 @@ Output: [1,1,2,2]
 class DSU{
     int[] parent;
     int [] size;
+    int[] rank;
     DSU(int n){
         parent = new int[n];
         size = new int[n];
+        rank = new int[n];
         for(int i = 0;i<n;i++){
             parent[i]=i;
             size[i]=1;
+            rank[i]=0;
         }
     }
     public int findParent(int x){
@@ -62,6 +65,18 @@ class DSU{
         }else{
             parent[pv] = pu;
             size[pu]+=size[pv];
+        }
+    }
+    public void unionByParent(int u, int v){
+        int pu = findParent(u);
+        int pv = findParent(v);
+        if(rank[pu] < rank[pv]){
+            parent[pu] = pv;
+        }else if(rank[pv] < rank[pu]){
+            parent[pv]=pu;
+        }else{
+            parent[pu]=pv;
+            rank[pv]+=1;
         }
     }
 }
