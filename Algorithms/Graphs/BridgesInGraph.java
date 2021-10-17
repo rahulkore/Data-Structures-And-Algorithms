@@ -10,6 +10,7 @@ public class BridgesInGraph {
         for(int adjnode : adj.get(node)){
             if(adjnode == parent) continue;
             if(visited[adjnode] == 0){
+                dfs(adjnode,node,adj,visited,tin,lowtime);
                 lowtime[node] = Math.min(lowtime[adjnode], lowtime[node]);
                 if(lowtime[adjnode] > tin[node]){
                     System.out.println(adjnode + " => " + node);
