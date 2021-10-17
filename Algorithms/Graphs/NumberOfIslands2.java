@@ -67,7 +67,7 @@ class DSU{
             size[pu]+=size[pv];
         }
     }
-    public void unionByParent(int u, int v){
+    public void unionByRank(int u, int v){
         int pu = findParent(u);
         int pv = findParent(v);
         if(rank[pu] < rank[pv]){
