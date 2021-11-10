@@ -34,7 +34,7 @@ Explanation: The optimal path is 15 -> 20 -> 7 with a path sum of 15 + 20 + 7 = 
  *         this.val = val;
  *         this.left = left;
  *         this.right = right;
- *     }
+ *     } 
  * }
  */
 public class MaximumPathSum {

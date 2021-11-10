@@ -32,7 +32,7 @@ public class ValidAnagrams {
                 return false;
             }
         }
-        Collections.addAll(Arrays.asList(map.values()));
+        map.values().stream().reduce(0, Integer::sum);
         return map.isEmpty() ? true : false;
     }
     public static void main(String[] args) {
