@@ -1,4 +1,7 @@
 package Algorithms.Arrays;
+
+import java.util.Arrays;
+
 /**
  * Find Minimum no of coins to make a value 
  */
@@ -46,8 +49,7 @@ public class MinNoOfCoins {
         // Base case (If given value V is 0)
         table[0] = 0;
         // Initialize all table values as Infinite
-        for (int i = 1; i <= V; i++)
-        table[i] = Integer.MAX_VALUE;
+        Arrays.fill(table,Integer.MAX_VALUE);
         // Compute minimum coins required for all
         // values from 1 to V
         for (int i = 1; i <= V; i++)
