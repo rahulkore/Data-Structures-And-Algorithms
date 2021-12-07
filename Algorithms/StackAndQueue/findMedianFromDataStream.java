@@ -1,4 +1,4 @@
-package misc.hard;
+package Algorithms.StackAndQueue;
 import java.util.*;
 public class findMedianFromDataStream {
 

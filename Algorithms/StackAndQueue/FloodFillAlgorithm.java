@@ -1,4 +1,4 @@
-package misc.medium;
+package Algorithms.StackAndQueue;
 
 import java.util.*;
 
