@@ -24,7 +24,7 @@ public class SingleElementInASortedArray {
         int low = 0, high = nums.length - 2; 
         while(low <= high) {
             int mid = (low + high) >> 1; 
-            if(nums[mid] == nums[mid^1]) {
+            if(nums[mid] == nums[mid^1]) { // mid=8 mid^1 = 9 || mid=9 mid^1 = 8 basically checks if left half
                 low = mid + 1; 
             } 
             else {
