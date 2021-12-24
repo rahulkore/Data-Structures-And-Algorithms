@@ -25,9 +25,10 @@ removing the root.
  */
 public class MaxHeaps {
 
-    private int[] Heap;
-    private int size;
-    private int maxsize;
+    
+    private static int[] Heap;
+    private static int size;
+    private static int maxsize;
 
     public MaxHeaps(int maxsize)    
     {
@@ -37,34 +38,13 @@ public class MaxHeaps {
         Heap = new int[this.maxsize];
     }
 
-    // Method 1
-    // Returning position of parent
-    private int parent(int pos) { return (pos - 1) / 2; }
+    private static int parent(int pos) { return (pos - 1) / 2; }
  
-    // Method 2
-    // Returning left children
-    private int leftChild(int pos) { return (2 * pos + 1); }
+    private static int leftChild(int pos) { return (2 * pos + 1); }
  
-    // Method 3
-    // Returning right children
-    private int rightChild(int pos)
-    {
-        return (2 * pos) + 2;
-    }
+    private static int rightChild(int pos) { return (2 * pos) + 2; }
 
-    // Method 4
-    // Returning true of given node is leaf
-    private boolean isLeaf(int pos)
-    {
-        if (pos > (size / 2) && pos <= size) {
-            return true;
-        }
-        return false;
-    }
- 
-    // Method 5
-    // Swapping nodes
-    private void swap(int fpos, int spos)
+    private static void swap(int fpos, int spos)
     {
         int tmp;
         tmp = Heap[fpos];
@@ -72,104 +52,78 @@ public class MaxHeaps {
         Heap[spos] = tmp;
     }
 
-
-    // Method 6
-    // Recursive function to max heapify given subtree
-    private void maxHeapify(int pos)
+    public static void insert(int element)
     {
-        if (isLeaf(pos))
+        if(size == maxsize){
+            System.out.println("over flow");
             return;
- 
-        if (Heap[pos] < Heap[leftChild(pos)]
-            || Heap[pos] < Heap[rightChild(pos)]) {
- 
-            if (Heap[leftChild(pos)]
-                > Heap[rightChild(pos)]) {
-                swap(pos, leftChild(pos));
-                maxHeapify(leftChild(pos));
-            }
-            else {
-                swap(pos, rightChild(pos));
-                maxHeapify(rightChild(pos));
-            }
         }
-    }
-
-    // Method 7
-    // Inserts a new element to max heap
-    public void insert(int element)
-    {
         Heap[size] = element;
- 
         // Traverse up and fix violated property
         int current = size;
-        while (Heap[current] > Heap[parent(current)]) {
+        while (current!=0 && Heap[current] > Heap[parent(current)]) {
             swap(current, parent(current));
             current = parent(current);
         }
         size++;
     }
 
-     // Method 8
-    // To display heap
-    public void print()
-    {
-       
-      for(int i=0;i<size/2;i++){
- 
-            System.out.print("Parent Node : " + Heap[i] );
-             
-            if(leftChild(i)<size) //if the child is out of the bound of the array
-               System.out.print( " Left Child Node: " + Heap[leftChild(i)]);
-             
-            if(rightChild(i)<size) //if the right child index must not be out of the index of the array
-                System.out.print(" Right Child Node: "+ Heap[rightChild(i)]);
-             
-                System.out.println(); //for new line
-             
+    public static void decreaseKey(int i, int new_val){
+
+        Heap[i] = new_val;
+        while (i!=0 && Heap[i] > Heap[parent(i)]) {
+            swap(i, parent(i));
+            i = parent(i);
         }
-           
     }
 
-
-    // Method 9
-    // Remove an element from max heap
-    public int extractMax()
-    {
-        int popped = Heap[0];
+    public static int extractMax(){
+        if(size <= 0){
+            return Integer.MIN_VALUE;
+        }
+        if(size == 1){
+            size--;
+            return Heap[0];
+        }
+        int root = Heap[0];
         Heap[0] = Heap[size-1];
         size--;
-        maxHeapify(1);
-        return popped;
+        maxHeapify(0);
+        return root;
     }
 
-    // Method 10
-    // main dri er method
+    public static void deleteKey(int i){
+        decreaseKey(i, Integer.MIN_VALUE);
+        extractMax();
+    }
+
+    public static void maxHeapify(int i){
+
+        int l = leftChild(i);
+        int r = rightChild(i);
+        int largest = i;
+        if(l<size && Heap[l] > Heap[i])
+        largest=l;
+        if(r<size && Heap[r] > Heap[largest])
+        largest=r;
+        if(largest != i){
+            swap(i,largest);
+            maxHeapify(largest);
+        }
+
+    }
     public static void main(String[] arg)
     {
+        MaxHeaps maxHeap = new MaxHeaps(10);
         // Display message for better readability
-        System.out.println("The Max Heap is ");
- 
-        MaxHeaps maxHeap = new MaxHeaps(15);
- 
-        // Inserting nodes
-        // Custom inputs
-        maxHeap.insert(5);
-        maxHeap.insert(3);
-        maxHeap.insert(17);
-        maxHeap.insert(10);
-        maxHeap.insert(84);
-        maxHeap.insert(19);
-        maxHeap.insert(6);
-        maxHeap.insert(22);
-        maxHeap.insert(9);
- 
-        // Calling maxHeap() as defined above
-        maxHeap.print();
- 
-        // Print and display the maximum value in heap
-        System.out.println("The max val is "
-                           + maxHeap.extractMax());
+        int nums[] = {1,2,3,4,5,6,7,8,9,10};
+        for(int ele : nums){
+            maxHeap.insert(ele);
+        }
+        for(int i =0 ;i<nums.length;i++){
+            System.out.println(maxHeap.extractMax());
+        }
+       
     }
     
 }

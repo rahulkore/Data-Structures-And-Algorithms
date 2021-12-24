@@ -38,32 +38,42 @@ public class CommonElementsInThreeSortedArrays {
         int n2 = nums2.length;
         int n3 = nums3.length;
         int i =0,j=0,k=0;
+        int prev1=Integer.MIN_VALUE,prev2=Integer.MIN_VALUE,prev3=Integer.MIN_VALUE;
         List<Integer> ans = new ArrayList<>();
         while(i<n1 && j<n2 && k<n3){
             if(nums1[i]==nums2[j] && nums2[j]==nums3[k]){
                 ans.add(nums1[i]);
+                prev1=nums1[i];
+                prev2=nums2[j];
+                prev3=nums3[k];
                 i++;
                 j++;
                 k++;
             }else if(nums1[i] < nums2[j]){
+                prev1=nums1[i];
                 i++;
             }else if(nums2[j] < nums3[k]){
+                prev2=nums2[j];
                 j++;
             }else{
+                prev3=nums3[k];
                 k++;
             }
-            int a = nums1[i-1];
-            while(nums1[i]==a) i++;
-            int b = nums2[j-1];
-            while(nums2[j]==b) j++;
-            int c = nums3[k-1];
-            while(nums3[k]==c) k++;
+            while(i<n1 && nums1[i]==prev1) i++;
+            while(j<n2 && nums2[j]==prev2) j++;
+            while(k<n3 && nums3[k]==prev3) k++;
         }
         if(ans.size()==0) return new ArrayList<>();
         else return ans;
     }
     public static void main(String[] args) {
-        
+
+        int ar1[] = { 1, 5, 10, 20, 40, 80, 80 };
+        int ar2[] = { 6, 7, 20, 80, 80, 100 };
+        int ar3[] = { 3, 4, 15, 20, 30, 70, 80, 80, 120 };
+        List<Integer> ans = commonEfficient(ar1,ar2,ar3);
+        for(Integer ele : ans)
+        System.out.println(ele);
     }
     
 }
