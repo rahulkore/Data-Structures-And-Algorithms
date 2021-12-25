@@ -29,7 +29,7 @@ public class DeleteInABSt {
             if(q == null){ /**If element not found just return the root */
                 return root;
             }
-            /** First case : check if it is a left node 
+            /** First case : check if it is a leaf node 
              * 1] root
              * 2] non-root
              */
