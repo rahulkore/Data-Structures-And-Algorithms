@@ -29,7 +29,7 @@ public class BellManFordAlgorithm {
         d = new int[V];
         pi = new int[V];
         for(int i=0;i<V;i++){
-            d[i]  = 99999999;
+            d[i]  = Integer.MAX_VALUE;
             pi[i] = -1;
         }
 

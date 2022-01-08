@@ -8,12 +8,10 @@ public class MultiStageGraph {
     public static int COST[];// cost array
     public static int d[];// decision array
     public static int p[];// path array
-
     static void multiStageGraph(){
-
         COST[n-1] = 0;
         for(int j=n-2;j>=0;j--){
-            int min = 99999999;
+            int min = Integer.MAX_VALUE;
             int minpos = -1; 
             for(int r=0;r<n;r++){
                 
@@ -26,9 +24,6 @@ public class MultiStageGraph {
             COST[j] = min;
             d[j] = minpos;
         }
-        // for(int i=0;i<n-1;i++){
-        //     System.err.print(d[i] +" ");
-        // }
         p[0]=0;
         p[k-1]=n-1;
         for(int j=1;j<k-1;j++){

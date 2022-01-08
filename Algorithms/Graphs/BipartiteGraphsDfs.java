@@ -2,7 +2,7 @@ package Algorithms.Graphs;
 import java.util.*;
 /**
  * Bipartite graphs : If you can color a graph using two different colors such that no two adjacent nodes
- * have the same color , then the graoh is known to be as bipartite graph.
+ * have the same color , then the graph is known to be as bipartite graph. 
  * 
  * odd length cycle : => If graph is not bipartite then there will be odd length cycle 
  * 
@@ -10,7 +10,8 @@ import java.util.*;
  */
 public class BipartiteGraphsDfs {
 
-    private static boolean checkBipartiteGraph(int node, int color,int[] colorArray,ArrayList<ArrayList<Integer>> adj){
+    private static boolean checkBipartiteGraph(int node, int color,
+    int[] colorArray,ArrayList<ArrayList<Integer>> adj){
         colorArray[node] = color;
         for(int it : adj.get(node)){
             if(colorArray[it] == -1){

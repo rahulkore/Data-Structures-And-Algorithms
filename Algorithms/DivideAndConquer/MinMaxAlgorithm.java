@@ -1,4 +1,4 @@
-package Algorithms.DivideAndConquer
+package Algorithms.DivideAndConquer;
 
 
 class MinMax {

@@ -14,6 +14,7 @@ public class DijkstrasAlgorithm {
 
     private static void dijkstras(int source,ArrayList<ArrayList<int[]>> adj, int[] dist,int[] parent ){
         PriorityQueue<int[]> dq = new PriorityQueue<>(new CustomIntegerComparator());
+        // PriorityQueue<int[]> pq = new  PriorityQueue<>((a,b) -> a[1]-b[1]);
         dq.add(new int[]{source,0});
         dist[source] = 0;
         while(!dq.isEmpty()){

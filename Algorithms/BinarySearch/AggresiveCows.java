@@ -30,7 +30,7 @@ public class AggresiveCows {
     	            high = mid - 1; 
     	        }
     	    }
-    	    System.out.println(high);; 
+    	    System.out.println(high);
     }
     public static void main(String[] args) {
         

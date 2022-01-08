@@ -67,7 +67,13 @@ public class GlobalAndLocalInversions {
         */
         
         /**
-        The logic is that there should only exist local inversions in the array. Global inversions apart from local inversions should be zero. That means an element at a particular position should only be at max 1 position away from it's position in the sorted array. If it is 2 or more positions away from it's position in the sorted array, that leads to existence of a global inversion which is not a local inversion. We should also make use of the fact that elements are in the range 0 to n-1. So abs(nums[i]-i) can be 1 at maximum, else we return 0.
+        The logic is that there should only exist local inversions in the array. 
+        Global inversions apart from local inversions should be zero.
+        That means an element at a particular position should only be at max 1 position away 
+        from it's position in the sorted array. If it is 2 or more positions away from it's
+        position in the sorted array, that leads to existence of a global inversion which is
+        not a local inversion. We should also make use of the fact that elements are in the
+        range 0 to n-1. So abs(nums[i]-i) can be 1 at maximum, else we return 0.
         */
         for(int i=0;i<nums.length;i++){
             if(Math.abs(nums[i]-i)>1) return false;

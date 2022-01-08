@@ -39,7 +39,7 @@ public class FloydWarshallsAlgorithm {
             for(int j=0;j<n;j++){
                 if(i!=j){
                     if(a[i][j] == 0){
-                        a[i][j] = 9999999;
+                        a[i][j] = Integer.MAX_VALUE;
                         d[i][j] = -1;
                     }else{
                         d[i][j] = i;

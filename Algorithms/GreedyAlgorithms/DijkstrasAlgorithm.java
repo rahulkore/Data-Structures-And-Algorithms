@@ -24,7 +24,7 @@ public class DijkstrasAlgorithm {
      static int EXTRACTMIN(){
          int minVal;
          int minIndex;
-         minVal = 99999999;
+         minVal = Integer.MAX_VALUE;
          minIndex = -1;
          for(int i=0;i<V;i++){
              if((d[i] < minVal) && visitedNodeList[i]==0){
