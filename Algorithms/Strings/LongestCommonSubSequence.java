@@ -8,7 +8,7 @@ import java.util.*;
  * 
  * l(s1,s2) =>   1+l(r1,r2) if c1==c2 where c1 and c2 are the preceedings 
  * 
- *              max(l(s1,r2), l(r1,s2)) if c!=c2 
+ *              max(l(s1,r2), l(r1,s2)) if c1 != c2 
  * 
  * Starting from bottom so if equals then will check the right diagonal 
  * or else max of down and right
