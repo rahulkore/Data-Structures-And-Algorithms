@@ -32,8 +32,9 @@ public class ConstructBinaryTreeFromInorderAndPostOrder {
         if (ps>pe || is>ie) return null;
         TreeNode root = new TreeNode(postorder[pe]);
         int ri = hm.get(postorder[pe]);
-        TreeNode leftchild = buildTreePostIn(inorder, is, ri-1, postorder, ps, ps+ri-is-1, hm);
-        TreeNode rightchild = buildTreePostIn(inorder,ri+1, ie, postorder, ps+ri-is, pe-1, hm);
+        int numsLeft = ri - is;
+        TreeNode leftchild = buildTreePostIn(inorder, is, ri-1, postorder, ps, ps+numsLeft-1, hm);
+        TreeNode rightchild = buildTreePostIn(inorder,ri+1, ie, postorder, ps+numsLeft, pe-1, hm);
         root.left = leftchild;
         root.right = rightchild;
         return root;

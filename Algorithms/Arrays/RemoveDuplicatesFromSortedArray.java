@@ -40,7 +40,7 @@ It does not matter what you leave beyond the returned k (hence they are undersco
  */
 public class RemoveDuplicatesFromSortedArray {
 
-    public int removeDuplicates(int[] nums) {
+    public static int removeDuplicates(int[] nums) {
         int k=1;
         if(nums == null || nums.length==0) return 0;
         // below method uses one extra sort which means O(nlogn + n)
@@ -69,7 +69,11 @@ public class RemoveDuplicatesFromSortedArray {
         return k;
     }
     public static void main(String[] args) {
-        
+        int[] nums = {0,0,1,1,1,2,2,3,3,4};
+        int j = removeDuplicates(nums);
+        for(int i=0;i<j;i++){
+            System.out.println(nums[i] + " ");
+        }
     }
     
 }

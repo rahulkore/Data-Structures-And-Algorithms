@@ -4,16 +4,16 @@ public class InOrderSuccessorOrPredeccessorInBST {
 
 
     public TreeNode inorderPredecessor(TreeNode root, TreeNode p) {
-        TreeNode successor = null;
+        TreeNode predecessor = null;
         while (root != null) {
             if (p.val >= root.val) {
-                successor = root;
+                predecessor = root;
                 root = root.right;
             } else {
                 root = root.left;
             }
         }
-        return successor;
+        return predecessor;
     }
     public TreeNode inorderSuccessor(TreeNode root, TreeNode p) {
         TreeNode successor = null;

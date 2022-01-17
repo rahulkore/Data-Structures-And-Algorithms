@@ -30,6 +30,7 @@ public class SubArraySumEqualsk {
                 res++;
             if (prevSum.containsKey(currsum - sum))
                 res += prevSum.get(currsum - sum);
+            // prevSum.put(currsum, prevSum.getOrDefault(currsum, 0)+1);
             Integer count = prevSum.get(currsum);
             if (count == null)
                 prevSum.put(currsum, 1);

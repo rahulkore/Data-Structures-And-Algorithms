@@ -14,7 +14,7 @@ Example 2:
 
 Input: nums = [0,0,1,1,0,0,1,1,1,0,1,1,0,0,0,1,1,1,1], k = 3
 Output: 10
-Explanation: [0,0,1,1,1,1,1,1,1,1,1,1,0,0,0,1,1,1,1]
+Explanation:c
 Bolded numbers were flipped from 0 to 1. The longest subarray is underlined.
 
  */
@@ -28,7 +28,7 @@ public class MaxConsOnesAfterKFlip {
     <= k keep left static and increment right and we will get the new window size 
     and this way we will get the maxx consecutive 1's after flipping k zeroes
     */
-    public int longestOnes(int[] nums, int k) {
+    public static int longestOnes(int[] nums, int k) {
         
         int left = 0;
         int right  = 0;
@@ -47,7 +47,8 @@ public class MaxConsOnesAfterKFlip {
         return right-left;
     }
     public static void main(String[] args) {
-        
+        int nums[] = {0,0,1,1,0,0,1,1,1,0,1,1,0,0,0,1,1,1,1};
+        System.out.println(longestOnes(nums, 3));
     }
     
 }

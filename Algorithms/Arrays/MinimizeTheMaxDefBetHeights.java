@@ -88,11 +88,12 @@ public class MinimizeTheMaxDefBetHeights {
                 ph.add(new Pair(nums[i]-k,i));
             ph.add(new Pair(nums[i]+k,i));
         }
-        Collections.sort(ph,new Comparator<Pair>(){
-            public int compare(Pair p1, Pair p2){
-                return p1.getValue() - p2.getValue();
-            }
-        });
+        // Collections.sort(ph,new Comparator<Pair>(){
+        //     public int compare(Pair p1, Pair p2){
+        //         return p1.getValue() - p2.getValue();
+        //     }
+        // });
+        Collections.sort(ph,Comparator.comparing(Pair::getValue));
         int ele=0;
         int left = 0;
         int right=0;
