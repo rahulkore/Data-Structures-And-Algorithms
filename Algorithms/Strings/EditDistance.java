@@ -49,9 +49,11 @@ public class EditDistance {
                     if(word1.charAt(i-1) == word2.charAt(j-1)){
                         dp[i][j] = dp[i-1][j-1]; //left diagonal
                     }else{
-                        int insertCost = dp[i][j-1];
-                        int replaceCost = dp[i-1][j-1];
-                        int deleteCost = dp[i-1][j];
+                        //last one will be matching so give the ans of prev strings that are formed 
+                        //plus 1 because of the new operations that was done 
+                        int insertCost = dp[i][j-1]; //left
+                        int replaceCost = dp[i-1][j-1]; //left diagonal
+                        int deleteCost = dp[i-1][j]; // up
                         dp[i][j] = 1+Math.min(insertCost , Math.min(replaceCost,deleteCost));
                     }
                 }
