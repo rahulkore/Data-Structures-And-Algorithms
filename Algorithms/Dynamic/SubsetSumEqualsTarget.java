@@ -47,9 +47,9 @@ public class SubsetSumEqualsTarget {
         
         for(int i=0; i<n; i++){
             dp[i][0] = true;
-        }
+        }   
         if(arr[0]<=k)
-            dp[0][k] = true;
+            dp[0][arr[0]] = true;
         
         for(int ind = 1; ind<n; ind++){
             for(int target= 1; target<=k; target++){
