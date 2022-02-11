@@ -42,6 +42,22 @@ public class FenwickTree {
     public int range(int l, int r){
         return sum(r) - sum(l-1);
     }
+
+
+
+    /**To find the lower bound of an element 
+     * Binary lifting of fenwick tree
+     */
+    public int find(int k){
+        int curr = 0,prevsum = 0;
+        for(int i = (int)(Math.log(N)-Math.log(2));i>=0;i--){
+            if(fen[curr + (1<<i)] + prevsum < k){
+                curr = curr + (1<<i);
+                prevsum = fen[curr];
+            }
+        }
+        return curr+1;
+    }
     public static void main(String[] args) {
         
     }
