@@ -33,6 +33,7 @@ public class WordBreakProblem {
     and based upon that we will return true or false 
     like if dp[n-1] > 0 then return true else return false
     */
+    
     public boolean wordBreak(String s, List<String> wordDict) {
         int n = s.length();
         int dp[] = new int[n];
@@ -46,7 +47,9 @@ public class WordBreakProblem {
         return dp[n-1] > 0;
     }
 
-     /** Below is the brute approach */
+     /** Below is the brute approach 
+      * Tc = O(2*n)
+     */
      public static boolean wordBreakCheck(String word,List<String> dictionary)
      {
          int size = word.length();
@@ -73,7 +76,9 @@ public class WordBreakProblem {
 
 
 
-     /**Below is the dp approach  */
+     /**Below is the dp approach  
+      * Tc = O(n*2)
+     */
     public boolean wordBreakDpCheck(String word,List<String> dictionary){
         int size = word.length();
         if (size == 0)

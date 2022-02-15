@@ -17,6 +17,7 @@ Output: [-1]
  */
 public class ConstructBinaryTreeFromInorderAndPostOrder {
 
+    /**Tc = O(n) */
     public TreeNode buildTree(int[] inorder, int[] postorder) {
         if (inorder == null || postorder == null || inorder.length != postorder.length)
             return null;

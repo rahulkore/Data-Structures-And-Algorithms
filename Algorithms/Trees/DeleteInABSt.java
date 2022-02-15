@@ -1,6 +1,8 @@
 package Algorithms.Trees;
 
 public class DeleteInABSt {
+
+        /**Tc = O(H) */
         public TreeNode findMax(TreeNode node){
             if(node.right == null) return node;
             else return findMax(node.right);

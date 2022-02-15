@@ -1,18 +1,33 @@
 package Algorithms.Strings;
 import java.util.*;
-public class SmallestDistinctWindow {
+/**Given two strings s and t of lengths m and n respectively,
+ *  return the minimum window substring of s such that every character in t 
+ * (including duplicates) is included in the window. If there is no such substring, 
+ * return the empty string "".
 
-    public String findSubString( String str) {
-        // Your code goes here
-        if (str.length() == 0)
+The testcases will be generated such that the answer is unique.
+
+A substring is a contiguous sequence of characters within the string.
+
+ 
+
+Example 1:
+
+Input: s = "ADOBECODEBANC", t = "ABC"
+Output: "BANC"
+Explanation: The minimum window substring "BANC" includes 'A', 'B', and 'C' from string t. */
+public class MinimumWindowSubString {
+
+    public String minWindow(String s, String t) {
+        if (s.length() < t.length())
             return "";
-        String s = str;
+        
         Map<Character, Integer> tMap = new HashMap<>();
-        for (char c : str.toCharArray()) {
-            tMap.put(c,  1);
+        for (char c : t.toCharArray()) {
+            tMap.put(c, tMap.getOrDefault(c, 0) + 1);
         }
         
-        int defaultNum = tMap.size();
+        int defaultNum = t.length();
         int matchedNum = 0; 
         String ret = "";
         int min = s.length();
@@ -40,6 +55,7 @@ public class SmallestDistinctWindow {
             
         }
         return ret;
+
     }
     public static void main(String[] args) {
         

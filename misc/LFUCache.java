@@ -7,7 +7,7 @@ public class LFUCache {
     final int capacity;
     int curSize;
     int minFrequency;
-    Map<Integer, DLLNode> cache;
+    Map<Integer, DLLNode> cache; 
     Map<Integer, DoubleLinkedList> frequencyMap;
 
     /*.*/

@@ -37,7 +37,7 @@ public class AllSubArraysWithZeroSum {
                 ArrayList<Integer> al = new ArrayList<>();
                  
                 // If sum already exists in the map there exists
-                // at-least one subarray ending at index i with
+                // at-least one sub array ending at index i with
                 // 0 sum
                 if (map.containsKey(sum))
                 {

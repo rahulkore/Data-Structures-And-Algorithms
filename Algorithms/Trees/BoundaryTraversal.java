@@ -42,14 +42,14 @@ public class BoundaryTraversal {
         Node cur = root.right;
         ArrayList<Integer> tmp = new ArrayList<Integer>();
         while (cur != null) {
-            if (isLeaf(cur) == false) tmp.add(cur.data);
+            if (isLeaf(cur) == false) tmp.add(0,cur.data); // to store in the reverse direction
             if (cur.right != null) cur = cur.right;
             else cur = cur.left;
         }
-        int i;
-        for (i = tmp.size()-1; i >= 0; --i) {
-            res.add(tmp.get(i));
-        }
+        // int i;
+        // for (i = tmp.size()-1; i >= 0; --i) {
+        //     res.add(tmp.get(i));
+        // }
     }
     
     void addLeaves(Node root, ArrayList<Integer> res) {

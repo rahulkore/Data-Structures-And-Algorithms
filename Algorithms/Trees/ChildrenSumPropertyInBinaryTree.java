@@ -2,6 +2,7 @@ package Algorithms.Trees;
 
 public class ChildrenSumPropertyInBinaryTree {
 
+    /**Tc = O(n) */
     public static void childrenSum(TreeNode root){
         if(root == null) return;
         int child=0;

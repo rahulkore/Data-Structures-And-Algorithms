@@ -4,16 +4,18 @@ package Algorithms.Strings;
  * 
  * Implement strStr().
 
-Return the index of the first occurrence of needle in haystack, or -1 if needle is not part of haystack.
+Return the index of the first occurrence of needle in haystack, or -1 
+if needle is not part of haystack.
 
 Clarification:
 
-What should we return when needle is an empty string? This is a great question to ask during an interview.
+What should we return when needle is an empty string? 
+This is a great question to ask during an interview.
 
-For the purpose of this problem, we will return 0 when needle is an empty string. This is consistent to C's strstr() and Java's indexOf().
+For the purpose of this problem, we will return 0 when needle is an empty string. 
+This is consistent to C's strstr() and Java's indexOf().
 
  
-
 Example 1:
 
 Input: haystack = "hello", needle = "ll"
@@ -33,8 +35,6 @@ public class Kmp {
      * lps => longest prefix suffix
      * Tc = O(m+n)
      * Sc = O(m)
-     * @param lps
-     * @param pattern
      */
     public static void constructLps(int[] lps,String pattern){
         int i=1;
@@ -65,7 +65,7 @@ public class Kmp {
                 i++;
                 j++;
             }
-            if(j == M){// meands pattern found
+            if(j == M){// means pattern found
                 // j = lps[j-1]
                 return i-j;
             }else if(i < N && (haystack.charAt(i) != needle.charAt(j))){

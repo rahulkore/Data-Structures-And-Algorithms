@@ -77,120 +77,73 @@ public class WordWrapProblem {
 
     final static int MAX = Integer.MAX_VALUE;
 
-    // A utility function to print the solution
-    public static int printSolution (int p[], int n)
-    {
-        int k;
-        if (p[n] == 1)
-        k = 1;
-        else
-        k = printSolution (p, p[n]-1) + 1;
-        System.out.println("Line number" + " " + k + ": " +
-                    "From word no." +" "+ p[n] + " " + "to" + " " + n);
-        return k;
-    }
-
-    // l[] represents lengths of different words in input sequence.
-// For example, l[] = {3, 2, 2, 5} is for a sentence like
-// "aaa bb cc ddddd". n is size of l[] and M is line width
-// (maximum no. of characters that can fit in a line)
-    public static void solveWordWrap (int l[], int n, int M)
-    {
-        // For simplicity, 1 extra space is used in all below arrays
-    
-        // extras[i][j] will have number of extra spaces if words from i
-        // to j are put in a single line
-        int extras[][] = new int[n+1][n+1];
-    
-        // lc[i][j] will have cost of a line which has words from
-        // i to j
-        int lc[][]= new int[n+1][n+1];
-    
-        // c[i] will have total cost of optimal arrangement of words
-        // from 1 to i
-        int c[] = new int[n+1];
-    
-        // p[] is used to print the solution.
-        int p[] =new int[n+1];
-    
-        // calculate extra spaces in a single line. The value extra[i][j]
-        // indicates extra spaces if words from word number i to j are
-        // placed in a single line
-        for (int i = 1; i <= n; i++)
-        {
-            extras[i][i] = M - l[i-1];
-            for (int j = i+1; j <= n; j++)
-            extras[i][j] = extras[i][j-1] - l[j-1] - 1;
-        }
-
-        for(int i=0;i<extras.length;i++){
-            for(int j=0;j<extras[0].length;j++){
-                System.out.print(extras[i][j] + " ");
-            }
-            System.out.println();
-        }
-
-        System.out.println("+++++++++++++++++++++++++++");
+    public static String justify(String words[], int width) {
         
-        // Calculate line cost corresponding to the above calculated extra
-        // spaces. The value lc[i][j] indicates cost of putting words from
-        // word number i to j in a single line
-        for (int i = 1; i <= n; i++)
-        {
-            for (int j = i; j <= n; j++)
-            {
-                if (extras[i][j] < 0)
-                    lc[i][j] = MAX;
-                else if (j == n && extras[i][j] >= 0)
-                    lc[i][j] = 0;
-                else
-                    lc[i][j] = extras[i][j]*extras[i][j];
+        int cost[][] = new int[words.length][words.length];
+        
+        //next 2 for loop is used to calculate cost of putting words from
+        //i to j in one line. If words don't fit in one line then we put
+        //Integer.MAX_VALUE there.
+        for(int i=0 ; i < words.length; i++){
+            cost[i][i] = width - words[i].length();
+            for(int j=i+1; j < words.length; j++){
+                cost[i][j] = cost[i][j-1] - words[j].length() - 1; 
             }
-        }
-
-        for(int i=0;i<lc.length;i++){
-            for(int j=0;j<lc[0].length;j++){
-                System.out.print(lc[i][j] + " ");
-            }
-            System.out.println();
         }
         
-        // Calculate minimum cost and find minimum cost arrangement.
-        // The value c[j] indicates optimized cost to arrange words
-        // from word number 1 to j.
-        c[0] = 0;
-        for (int j = 1; j <= n; j++)
-        {
-            c[j] = MAX;
-            for (int i = 1; i <= j; i++)
-            {
-                if (c[i-1] != MAX && lc[i][j] != MAX &&
-                (c[i-1] + lc[i][j] < c[j]))
-                {
-                    c[j] = c[i-1] + lc[i][j];
-                    p[j] = i;
+        for(int i=0; i < words.length; i++){
+            for(int j=i; j < words.length; j++){
+                if(cost[i][j] < 0){
+                    cost[i][j] = Integer.MAX_VALUE;
+                }else{
+                    cost[i][j] = (int)Math.pow(cost[i][j], 2);
                 }
             }
-
         }
-        System.out.println("+++++++++++++++");
-        for (int i : c) {
-            System.out.print(i + " ");
+        
+        //minCost from i to len is found by trying
+        //j between i to len and checking which
+        //one has min value
+        int minCost[] = new int[words.length];
+        int result[] = new int[words.length];
+        for(int i = words.length-1; i >= 0 ; i--){
+            minCost[i] = cost[i][words.length-1];
+            result[i] = words.length;
+            for(int j=words.length-1; j > i; j--){
+                if(cost[i][j-1] == Integer.MAX_VALUE){
+                    continue;
+                }
+                if(minCost[i] > minCost[j] + cost[i][j-1]){
+                    minCost[i] = minCost[j] + cost[i][j-1];
+                    result[i] = j;
+                }
+            }
         }
-        System.out.println("+++++++++++++++");
-        for (int i : p) {
-            System.out.print(i + " ");
-        }
-        printSolution(p, n);
+        int i = 0;
+        int j;
+        
+        System.out.println("Minimum cost is " + minCost[0]);
+        System.out.println("\n");
+        //finally put all words with new line added in 
+        //string buffer and print it.
+        StringBuilder builder = new StringBuilder();
+        do{
+            j = result[i];
+            for(int k=i; k < j; k++){
+                builder.append(words[k] + " ");
+            }
+            builder.append("\n");
+            i = j;
+        }while(j < words.length);
+        
+        return builder.toString();
     }
 
     public static void main(String[] args) {
 
-        int l[] = {3, 2, 2, 5};
-        int n = l.length;
-        int M = 6;
-        solveWordWrap (l, n, M);
-        
+        String words1[] = {"Tushar","likes","to","write","code","at", "free", "time"};
+       
+        System.out.println(justify(words1, 12));
     }
     
 }

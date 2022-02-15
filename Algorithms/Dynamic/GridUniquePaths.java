@@ -73,7 +73,7 @@ Reason: We are using an external array of size ‘M*N’’.
          
          return dp[m-1][n-1];
        
-       }
+    }
        
        static int countWaysTable(int m, int n){
            int dp[][]=new int[m][n];

@@ -6,6 +6,7 @@ package Algorithms.Trees;
 public class DiameterOfBinaryTree {
     /** method start */
     int ans=0;
+    /**Tc=O(n) */
     public int maxDepth(TreeNode root) {
         if(root == null) return 0;
         int lh = maxDepth(root.left);

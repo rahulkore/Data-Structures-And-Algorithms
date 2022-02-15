@@ -30,7 +30,7 @@ public class NextPermutation {
 
      /**
     1st step : traverse from last and find the index such that a[i]<a[i+1] => ind1
-    2nd step : traverse from last and find the index suhc that a[i] > a[ind1] => ind2
+    2nd step : traverse from last and find the index such that a[i] > a[ind1] => ind2
     3rd step : swap(a[ind1],a[ind2])
     4th step : reverse from a[ind+1] to last
     */

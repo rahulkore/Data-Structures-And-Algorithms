@@ -99,7 +99,7 @@ public class FlattenAMultiLevelDoublyLinkedList {
                 return root; 
       
             // recur for list on right 
-            root.next = flatten(root.next); 
+            root.next = flattenSingle(root.next); 
       
             // now merge 
             root = mergeTwoLists(root, root.next); 

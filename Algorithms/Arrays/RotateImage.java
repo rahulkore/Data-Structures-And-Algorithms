@@ -22,6 +22,7 @@ public class RotateImage {
     public void rotate(int[][] matrix) {
         /**
         The below method is used to find the transpose of the matrix
+        while calculating the transpose just start the j from i 
         */
         for(int i =0;i<matrix.length;i++){
             for(int j=i;j<matrix[0].length;j++){

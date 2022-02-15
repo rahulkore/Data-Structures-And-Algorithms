@@ -13,6 +13,7 @@ public class LargestBSTInABinaryTree {
 
     private NodeValue largestBSTSubtreeHelper(TreeNode root) {
         // An empty tree is a BST of size 0.
+        /**Tc = O(n) */
         if (root == null) {
             return new NodeValue(Integer.MAX_VALUE, Integer.MIN_VALUE, 0);
         }

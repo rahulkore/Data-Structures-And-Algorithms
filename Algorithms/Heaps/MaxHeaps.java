@@ -93,7 +93,7 @@ public class MaxHeaps {
     }
 
     public static void deleteKey(int i){
-        decreaseKey(i, Integer.MIN_VALUE);
+        decreaseKey(i, Integer.MAX_VALUE);
         extractMax();
     }
 

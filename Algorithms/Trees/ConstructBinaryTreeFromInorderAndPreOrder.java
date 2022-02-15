@@ -16,6 +16,7 @@ Output: [-1]
  */
 public class ConstructBinaryTreeFromInorderAndPreOrder {
 
+    /**Tc=O(n) */
     public TreeNode buildTree(int[] preorder, int[] inorder) {
         Map<Integer, Integer> inMap = new HashMap<Integer, Integer>();
         for(int i = 0; i < inorder.length; i++) {

@@ -1,7 +1,8 @@
 package Algorithms.Strings;
 import java.util.*;
 /**
- * Given an expression with only ‘}’ and ‘{‘. The expression may not be balanced. Find minimum number of bracket reversals to make the expression balanced.
+ * Given an expression with only ‘}’ and ‘{‘. The expression may not be balanced. 
+ * Find minimum number of bracket reversals to make the expression balanced.
 Examples: 
 
 Input:  exp = "}{"
@@ -25,13 +26,16 @@ Output: 3
 public class MinReversalsToMakeValidParanthesis {
 
     /**
-     *  One simple observation is, the string can be balanced only if total number of brackets is even
+     *  One simple observation is, the string can be balanced only if total number of brackets
+     *  is even
      *  (there must be equal no of ‘{‘ and ‘}’)
         A Naive Solution is to consider every bracket and recursively count number of reversals by 
-        taking two
-        cases (i) keeping the bracket as it is (ii) reversing the bracket. If we get a balanced 
+        taking two cases 
+        (i) keeping the bracket as it is 
+        (ii) reversing the bracket. If we get a balanced 
         expression,
-        we update result if number of steps followed for reaching here is smaller than the minimum so 
+        we update result if number of steps followed for reaching here is smaller than 
+        the minimum so 
         far.
         Time complexity of this solution is O(2^n). 
      * 
@@ -43,8 +47,8 @@ public class MinReversalsToMakeValidParanthesis {
      *  part. If we take a closer look, we can notice that, after removing balanced part, we always 
      * end up with an expression of the form }}…}{{…{, an expression that contains 0 or more number 
      * of closing brackets followed by 0 or more numbers of opening brackets. 
-    How many minimum reversals are required for an expression of the form “}}..}{{..{” ?. Let m be the total
-     number of closing brackets and n be the number of opening brackets. We need ⌈m/2⌉ + ⌈n/2⌉
+    How many minimum reversals are required for an expression of the form “}}..}{{..{” ?. 
+        Let m be the total number of closing brackets and n be the number of opening brackets. We need ⌈m/2⌉ + ⌈n/2⌉
       reversals. For example }}}}{{ requires 2+1 reversals.
      * 
      */

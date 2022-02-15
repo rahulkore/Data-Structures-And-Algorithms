@@ -16,8 +16,7 @@ public class PrintAllAnagramsTogether {
         // frequency characters are present in
         // in a string then it will add it to
         // the arraylist.
-        HashMap<HashMap<Character, Integer>, ArrayList<String> > map = 
-        new HashMap<HashMap<Character, Integer>,ArrayList<String>>();
+        HashMap<HashMap<Character, Integer>, ArrayList<String> > map = new HashMap<HashMap<Character, Integer>,ArrayList<String>>();
         for (String str : list) {
             HashMap<Character, Integer>
                 tempMap = new HashMap<Character, Integer>();

@@ -35,7 +35,7 @@ public class AlternatPosAndNeg {
                     }
                 }
             }else{
-                if((nums[i]<0 && i%2==1) || (nums[i]>=0 && i%2==0)){
+                if((nums[i]>=0 && i%2==1) || (nums[i]<0 && i%2==0)){
                     wrongindex = i;
                 }
             }

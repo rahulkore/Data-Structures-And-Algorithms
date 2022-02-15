@@ -1,4 +1,4 @@
-package Algorithms.Arrays;
+package Algorithms.Dynamic;
 /**
  * You are given an m x n integer matrix points (0-indexed). Starting with 0 points, you want to maximize the number of points you can get from the matrix.
 

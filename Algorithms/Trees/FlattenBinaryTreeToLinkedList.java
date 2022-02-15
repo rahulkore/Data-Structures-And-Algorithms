@@ -22,6 +22,7 @@ Input: root = [0]
 Output: [0]
  */
 public class FlattenBinaryTreeToLinkedList {
+    /**Tc  =O(n) */
     /**Approach 1 => Recursive */
     TreeNode prev = null;
     public void flatten(TreeNode root) {

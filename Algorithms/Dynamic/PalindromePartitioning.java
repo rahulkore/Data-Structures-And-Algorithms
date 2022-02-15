@@ -66,6 +66,7 @@ public class PalindromePartitioning {
                 }else{
                     if(bp[i][j]){
                         dp[i][j] = 0;
+                        continue;
                     }
                     for(int k=i;k<j;k++){
                         dp[i][j] = Math.min(dp[i][j],dp[i][k]+dp[k+1][j]+1);

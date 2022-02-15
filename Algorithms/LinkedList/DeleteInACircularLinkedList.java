@@ -12,8 +12,7 @@ public class DeleteInACircularLinkedList {
         Node curr = head, prev = new Node();
         while (curr.data != key) {
             if (curr.next == head) {
-                System.out.printf("\nGiven node is not found"
-                                  + " in the list!!!");
+                System.out.printf("\nGiven node is not found"+ " in the list!!!");
                 break;
             }
  
