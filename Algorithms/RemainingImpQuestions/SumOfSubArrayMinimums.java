@@ -27,11 +27,11 @@ public class SumOfSubArrayMinimums {
 
         Then,
         left[i] + 1 equals to
-        the number of subarray ending with A[i],
+        the number of sub array ending with A[i],
         and A[i] is single minimum.
 
         right[i] + 1 equals to
-        the number of subarray starting with A[i],
+        the number of sub array starting with A[i],
         and A[i] is the first minimum.
 
         Finally f(i) = (left[i] + 1) * (right[i] + 1)

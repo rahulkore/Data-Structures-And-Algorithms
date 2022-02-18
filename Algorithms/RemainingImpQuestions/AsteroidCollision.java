@@ -30,6 +30,7 @@ public class AsteroidCollision {
                 else if (s.isEmpty() || s.getLast() < 0)
                     s.add(i);
             }
+            
         }
         return s.stream().mapToInt(Integer::intValue).toArray();
     }
