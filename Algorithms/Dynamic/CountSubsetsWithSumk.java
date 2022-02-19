@@ -5,7 +5,7 @@ import java.util.*;
  * of chosen elements is equal to the target number “tar”. */
 public class CountSubsetsWithSumk {
 
-    /**Recursiv Memoization solution
+    /**Recursive Memoization solution
      * Tc = O(n*k)
      * Sc = O(n*k) + O(n)
      */

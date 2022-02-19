@@ -5,7 +5,7 @@ import java.util.*;
  * (including duplicates) is included in the window. If there is no such substring, 
  * return the empty string "".
 
-The testcases will be generated such that the answer is unique.
+The test cases will be generated such that the answer is unique.
 
 A substring is a contiguous sequence of characters within the string.
 
