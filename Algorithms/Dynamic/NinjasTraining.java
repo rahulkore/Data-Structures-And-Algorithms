@@ -113,6 +113,34 @@ public class NinjasTraining {
         return prev[3];
     }
 
+    /**Tc = O(3n) 
+     * Sc = O(n)
+    */
+    public static void calc(int[] prev,int[] temp){
+        prev[0] = Math.max(temp[1],temp[2]);
+        prev[1] = Math.max(temp[0],temp[2]);
+        prev[2] = Math.max(temp[0],temp[1]);
+    }
+    public static int ninjaTrainingBestOptimized(int n, int points[][]) {
+        int prev[] = new int[3];
+        int temp[] = new int[3];
+        temp[0] = points[0][0];
+        temp[1] = points[0][1];
+        temp[2] = points[0][2];
+        calc(prev,temp);
+        for (int day = 1; day < n; day++) {
+            for(int task=0;task<=2;task++){
+                temp[task] = prev[task] + points[day][task];
+            }
+			calc(prev,temp);
+        }
+        int ans=Integer.MIN_VALUE;
+        for(int task=0;task<=2;task++){
+            ans = Math.max(ans,prev[task]);
+        }
+        return ans;
+    }
+
     public static void main(String[] args) {
 
         int[][] points = {{10,40,70},
