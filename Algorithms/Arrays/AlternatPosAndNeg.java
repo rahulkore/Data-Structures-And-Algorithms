@@ -4,11 +4,7 @@ import java.util.*;
  * Rearrange the array in alternate positive and negative element in O(1) space
  */
 public class AlternatPosAndNeg {
-    public static void swap(int nums[],int i, int j){
-        int t = nums[i];
-        nums[i] = nums[j];
-        nums[j] = t;
-    }
+    
     public static void rotate(int nums[],int i,int j){
         int t = nums[j];
         for(int itr=j;itr>i;itr--){
