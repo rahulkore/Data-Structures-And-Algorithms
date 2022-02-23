@@ -44,17 +44,11 @@ Example 2:
 	(0,4)->(0,3)->(1,3)->(1,2)->(1,1)->(1,0)->(0,0)
 	
  */
-class CustomsIntegerComparator implements Comparator<int[]> {
 
-    @Override
-    public int compare(int[] o1, int[] o2) {
-        return o1[2] < o2[2] ? 1 : -1;
-    }
-}
 public class TheMaze2 {
 
     private static int solve(int[][] maze,int[] start, int[] destination,int n,int m){
-        PriorityQueue<int[]> q = new PriorityQueue<>(new CustomsIntegerComparator());
+        PriorityQueue<int[]> q = new PriorityQueue<>((a,b) -> a[2]-b[2]);
         int[] distance = new int[n*m];
         Arrays.fill(distance,Integer.MAX_VALUE);
         q.add(new int[]{start[0],start[1],0});
