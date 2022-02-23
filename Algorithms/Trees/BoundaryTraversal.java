@@ -40,9 +40,9 @@ public class BoundaryTraversal {
     }
     void addRightBoundary(Node root, ArrayList<Integer> res) {
         Node cur = root.right;
-        ArrayList<Integer> tmp = new ArrayList<Integer>();
+        
         while (cur != null) {
-            if (isLeaf(cur) == false) tmp.add(0,cur.data); // to store in the reverse direction
+            if (isLeaf(cur) == false) res.add(0,cur.data); // to store in the reverse direction
             if (cur.right != null) cur = cur.right;
             else cur = cur.left;
         }
