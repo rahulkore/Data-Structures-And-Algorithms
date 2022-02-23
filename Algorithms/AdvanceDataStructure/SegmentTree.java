@@ -14,7 +14,7 @@ public class SegmentTree {
         int mid = (low + high)/2;
         build(2*ind+1,low,mid);
         build(2*ind+2,mid+1,high);
-        seg[ind] = Math.max(seg[2*ind+1],seg[2*ind+2+1]);
+        seg[ind] = Math.max(seg[2*ind+1],seg[2*ind+2]);
 
     }
 
