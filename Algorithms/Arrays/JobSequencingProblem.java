@@ -52,9 +52,7 @@ public class JobSequencingProblem {
         
         int result[] = new int[maxi + 1]; 
         
-        for(int i = 1;i<=maxi;i++) {
-            result[i] = -1; 
-        }
+        Arrays.fill(result,-1);
          
         int countJobs = 0, jobProfit = 0; 
         
