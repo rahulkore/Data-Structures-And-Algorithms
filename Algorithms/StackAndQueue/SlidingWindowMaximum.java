@@ -15,7 +15,7 @@ public class SlidingWindowMaximum {
                 dq.poll();
             }
             //delete all the smaller elements from the back 
-            while(!dq.isEmpty() && nums[dq.peekLast()] < nums[i]){ // change to > means deleting all the greater element from the back and the output will become sliding window minimum
+            while(!dq.isEmpty() && nums[dq.peekLast()] < nums[i]){  // change to > means deleting all the greater element from the back and the output will become sliding window minimum
                 dq.pollLast();
             }
             dq.offer(i); 

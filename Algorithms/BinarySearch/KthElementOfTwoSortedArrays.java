@@ -18,7 +18,7 @@ The 5th element of this array is 6.
  */
 public class KthElementOfTwoSortedArrays {
 
-    public long kthElement( int arr1[], int arr2[], int n, int m, int k) {
+    public static long kthElement( int arr1[], int arr2[], int n, int m, int k) {
         if(n > m) {
             return kthElement(arr2, arr1, m, n, k); 
         }
@@ -46,7 +46,10 @@ public class KthElementOfTwoSortedArrays {
         return 1; 
     }
     public static void main(String[] args) {
-        
+        int arr1[] = {2, 3, 6,7};
+        int arr2[] = {1, 4, 8, 10};
+        long ans = kthElement(arr1,arr2,arr1.length,arr2.length,5);
+        System.out.println(ans);
     }
     
 }
