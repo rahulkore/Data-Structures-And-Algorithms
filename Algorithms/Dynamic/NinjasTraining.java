@@ -114,7 +114,7 @@ public class NinjasTraining {
     }
 
     /**Tc = O(3n) 
-     * Sc = O(n)
+     * Sc = O(3)
     */
     public static void calc(int[] prev,int[] temp){
         prev[0] = Math.max(temp[1],temp[2]);
