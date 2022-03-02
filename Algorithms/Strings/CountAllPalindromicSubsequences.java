@@ -2,6 +2,19 @@ package Algorithms.Strings;
 
 public class CountAllPalindromicSubsequences {
 
+    /**S = pre+r+suf
+     * seq(s) = seq(_ r _)          => c1
+     *          seq(_ r suf)        => c2
+     *          seq(pre r _)        => c3
+     *          seq(pre r suf)      => c4
+     * 
+     * if(pre == suf) => total = c1 + c2 + c3 + c4 => c1 + c2 + c3 + c1 +1 => (c1+c2) + (c1+c3) + 1
+     *                => suffix + prefix + 1
+     * 
+     * if(pre != suf) => total = c1 + c2 + c3 => (c1+c2) + (c1+c3) - c1
+     *                => suffix + prefix + middle part
+     */
+
     public int countPalindromicSubsequences(String s) {
         int dp[][] = new int[s.length()][s.length()];
         Long ans=0L;

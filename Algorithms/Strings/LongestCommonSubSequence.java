@@ -6,7 +6,7 @@ import java.util.*;
  * 
  * cartesian product of above with each other 
  * 
- * l(s1,s2) =>   1+l(r1,r2) if c1==c2 where c1 and c2 are the preceedings 
+ * l(s1,s2) =>   1+l(r1,r2) if c1==c2 where c1 and c2 are the preceedings
  * 
  *              max(l(s1,r2), l(r1,s2)) if c1 != c2 
  * 

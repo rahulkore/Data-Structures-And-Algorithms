@@ -37,6 +37,18 @@ public class EditDistance {
      */
 
     public int minDistance(String word1, String word2) {
+
+        /**s1 = a
+         * s2 = am
+         * 
+         * when comparing => we have three options as listed below
+         * 
+         * insert         => s1 = am s2 = am => cancelling m => s1=a , s2 =a => left => [i][j-1]
+         * 
+         * replace        => s1 = m s2 = am => cancelling m => s1=_ , s2=a => diagonal=> [i-1][j-1]
+         * 
+         * delete         => s1 = _ s2 = am => s1 = _ s2 = am => up => [i-1][j]
+         */
         
         int dp[][] = new int[word1.length()+1][word2.length()+1];
         for(int i=0;i<dp.length;i++){

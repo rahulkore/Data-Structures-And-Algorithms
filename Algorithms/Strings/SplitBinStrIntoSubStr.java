@@ -61,7 +61,7 @@ public class SplitBinStrIntoSubStr {
     }
     public static void main(String[] args) {
 
-        String str = "0100110101";
+        String str = "0111100010";
         int n = str.length();
         
         System.out.println(maxSubStr(str, n));
