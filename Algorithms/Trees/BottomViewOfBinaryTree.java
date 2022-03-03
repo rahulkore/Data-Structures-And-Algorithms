@@ -12,7 +12,7 @@ import java.util.*;
  */
 public class BottomViewOfBinaryTree {
 
-    static ArrayList<Integer> topView(Node root)
+    static ArrayList<Integer> bottomView(Node root)
     {
         ArrayList<Integer> ans = new ArrayList<>(); 
         if(root == null) return ans;
