@@ -27,6 +27,11 @@ Explanation: The endWord "cog" is not in wordList, therefore there is no valid t
  */
 public class WordLadder {
 
+    /**Tc = O(mn) 
+     * Sc = o(n)
+     * m = individual word length
+     * n = word list length
+    */
     public int ladderLength(String beginWord, String endWord, List<String> wordList) {
         Set<String> word=new HashSet(wordList);//it will be easy to check if wordlist contains that word
         Queue<String> q=new LinkedList<>();
