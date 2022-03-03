@@ -1,4 +1,4 @@
-package Algorithms.Recursion;
+package Algorithms.RemainingImpQuestions;
 import java.util.*;
 /**You are given an array of logs. Each log is a space-delimited string of words, where the 
  * first word is the identifier.
