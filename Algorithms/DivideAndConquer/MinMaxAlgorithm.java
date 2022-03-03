@@ -33,17 +33,9 @@ public class MinMaxAlgorithm {
         mml = minmax(x,i,m);
         mmr = minmax(x,m+1,j);
 
-        if(mml.min < mmr.min){
-            mm.min = mml.min;
-        }else{
-            mm.min = mmr.min;
-        }
+        mm.min = Math.min(mml.min,mmr.min);
 
-        if(mml.max > mmr.max){
-            mm.max = mml.max;
-        }else{
-            mm.max = mmr.max;
-        }
+        mm.max = Math.max(mml.max,mmr.max);
 
         return mm;
 
