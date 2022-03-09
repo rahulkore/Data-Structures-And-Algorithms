@@ -5,6 +5,7 @@ package Algorithms.TopAmazonAskedQuestionsLeetCode;
 
 Substrings that occur multiple times are counted the number of times they occur.
 
+
 Example 1:
 
 Input: s = "00110011"
