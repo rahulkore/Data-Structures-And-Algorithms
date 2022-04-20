@@ -58,7 +58,7 @@ public class LongestSubSeqAdjEleOneComDigit {
     {
         tmp = arr[i];
         locMax = 1;
-                Arrays.fill(cnt, 0);
+        Arrays.fill(cnt, 0);
  
         // Find digits in current element
         while (tmp > 0)
