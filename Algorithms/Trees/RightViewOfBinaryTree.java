@@ -15,7 +15,8 @@ public class RightViewOfBinaryTree {
             level++;
             for(int i =0 ;i<levelSize;i++){
                 TreeNode temp = q.poll();
-                map.put(level, temp.val);
+                map.put(level, temp.val); 
+                // if(i == levelSize-1) ans.add(temp.val); this way level variable and map can be eliminated
                 if(temp.left != null) q.offer(temp.left);
                 if(temp.right != null) q.offer(temp.right);
             }
