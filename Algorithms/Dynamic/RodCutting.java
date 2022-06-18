@@ -11,7 +11,102 @@ Note:
 3. Consider 1-based indexing. */
 public class RodCutting {
 
-    /**Recursive Memoization method
+    /**Recursive Approach
+     * Time Complexity: O(N*N)
+     * Space Complexity: O(N*N) + O(N)
+     */
+    static int cutRodUtil(int[] price, int ind, int N,int[][] dp){
+
+        if(ind == 0){
+            return N*price[0];
+        }
+        
+        if(dp[ind][N]!=-1)
+            return dp[ind][N];
+            
+        int notTaken = 0 + cutRodUtil(price,ind-1,N,dp);
+        
+        int taken = Integer.MIN_VALUE;
+        int rodLength = ind+1;
+        if(rodLength <= N)
+            taken = price[ind] + cutRodUtil(price,ind,N-rodLength,dp);
+            
+        return dp[ind][N] = Math.max(notTaken,taken);
+    }
+    
+    
+    static int cutRod(int[] price,int N) {
+    
+        
+        int dp[][]=new int[N][N+1];
+        for(int row[]:dp)
+        Arrays.fill(row,-1);
+        return cutRodUtil(price,N-1,N,dp);
+    }
+
+    /**Tabulation Approach 
+     * Time Complexity: O(N*N)
+     * Space Complexity: O(N*N)
+     */
+    static int cutRod(int[] price,int N) {
+
+
+        int dp[][]=new int[N][N+1];
+        
+        for(int row[]:dp)
+        Arrays.fill(row,-1);
+        
+        for(int i=0; i<=N; i++){
+            dp[0][i] = i*price[0];
+        }
+        
+        for(int ind=1; ind<N; ind++){
+            for(int length =0; length<=N; length++){
+            
+                 int notTaken = 0 + dp[ind-1][length];
+        
+                 int taken = Integer.MIN_VALUE;
+                 int rodLength = ind+1;
+                 if(rodLength <= length)
+                    taken = price[ind] + dp[ind][length-rodLength];
+            
+                 dp[ind][length] = Math.max(notTaken,taken);   
+            }
+        }
+        
+        return dp[N-1][N];
+    }
+
+    /**Space Optimized approach
+     * Time Complexity: O(N*N)
+     * Space Complexity: O(N)
+     */
+    static int cutRod(int[] price,int N) {
+
+        int cur[]=new int[N+1];
+        
+        for(int i=0; i<=N; i++){
+            cur[i] = i*price[0];
+        }
+        
+        for(int ind=1; ind<N; ind++){
+            for(int length =0; length<=N; length++){
+            
+                 int notTaken = 0 + cur[length];
+        
+                 int taken = Integer.MIN_VALUE;
+                 int rodLength = ind+1;
+                 if(rodLength <= length)
+                    taken = price[ind] + cur[length-rodLength];
+            
+                 cur[length] = Math.max(notTaken,taken);   
+            }
+        }
+        
+        return cur[N];
+    }
+
+    /**Recursive Memoization method [binary way]
      * Tc = O(n*n)
      * Sc = O(n) + O(n)
      */
@@ -47,7 +142,7 @@ public class RodCutting {
         return helper(np.length-1,np,dp);
     }
 
-    /**Tabulation method 
+    /**Tabulation method [binary way]
      * Tc = O(n*n)
      * Sc = O(n)
      */
@@ -74,6 +169,12 @@ public class RodCutting {
 	}
 
     public static void main(String[] args) {
+
+        int price[] = {2,5,7,8,10};
+  
+        int n = price.length;
+                                        
+        System.out.println("The Maximum price generated is "+cutRod(price,n));
         
     }
     
