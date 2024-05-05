@@ -9,7 +9,7 @@ public class ZeroOneKnapsack {
      * Sc = O(n*w) + O(n)
      */
     public static int helper(int ind,int m,int[] weight, int[] value,int[][] dp){
-        if(ind == 0){
+        if(ind == 0){ 
             if(weight[0] <= m)
                 return value[0];
             else return 0;
