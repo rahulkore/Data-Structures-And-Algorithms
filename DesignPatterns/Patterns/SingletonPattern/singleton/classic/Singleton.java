@@ -1,4 +1,4 @@
-package headfirst.designpatterns.singleton.classic;
+package DesignPatterns.Patterns.SingletonPattern.singleton.classic;
 
 // NOTE: This is not thread safe!
 
