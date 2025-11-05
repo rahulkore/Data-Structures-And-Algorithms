@@ -1,5 +1,7 @@
 // https://leetcode.com/problems/house-robber/description/ 
 
+// TC : O(n)
+// SC : O(n)
 
 class Solution {
     public int houseRobber(int[] money) {
